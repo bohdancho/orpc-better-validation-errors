@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +28,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <header>
+          <nav className="flex flex-col gap-1 underline text-blue-600">
+            <Link href="next-safe-action">next-safe-action</Link>
+            <Link href="orpc">orpc</Link>
+            <Link href="orpc-rq">orpc + tanstack query</Link>
+          </nav>
+        </header>
+        <main>{children}</main>
       </body>
     </html>
   );
